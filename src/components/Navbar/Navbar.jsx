@@ -1,17 +1,20 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Navbar() {
   const dispatch = useDispatch();
+  const currentPage = useSelector((state) => state.state.currentPage);
 
   return (
     <div className="Header">
       <div className="Header__left">
         <Link
           to="/"
-          onClick={() => dispatch({ type: "CURRENT_PAGE", payload: 1 })}
+          onClick={() =>
+            dispatch({ type: "CURRENT_PAGE", payload: currentPage })
+          }
         >
           <i className="fas fa-video fa-lg"> </i>
         </Link>

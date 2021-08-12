@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import "./MainList.css";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
+import { useEffect } from "react";
 
 const MainList = ({ movies }) => {
   const bookmark = useSelector((state) => state.state.bookmark);
   const loading = useSelector((state) => state.state.loading);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return loading ? (
     <Loader />

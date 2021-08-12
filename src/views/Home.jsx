@@ -33,6 +33,7 @@ const Home = () => {
         <Loader />
       ) : (
         <>
+          <Pagination />
           <MainList movies={movies} />
           <Pagination />
         </>

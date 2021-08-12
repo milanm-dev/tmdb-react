@@ -24,6 +24,7 @@ const MovieDetails = ({ match }) => {
   };
 
   useEffect(() => {
+    window.scroll(0, 0);
     fetchMovieDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
