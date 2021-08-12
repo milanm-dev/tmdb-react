@@ -1,0 +1,23 @@
+.MoviesList {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  justify-content: center;
+  gap: 30px;
+
+  @media (max-width: 1440px) {
+    grid-template-columns: 200px 200px 200px 200px;
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: 200px 200px 200px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 200px 200px;
+  }
+  @media (max-width: 425px) {
+    grid-template-columns: 200px;
+  }
+
+  img {
+    width: 200px;
+  }
+}

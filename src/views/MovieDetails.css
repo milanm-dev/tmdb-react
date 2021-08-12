@@ -1,0 +1,110 @@
+.MovieDetails {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  width: 90%;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+@media (max-width: 768px) {
+  .MovieDetails {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 550px) {
+  .MovieDetails {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.MovieDetails__poster {
+  width: 300px;
+}
+
+@media (max-width: 1024px) {
+  .MovieDetails__poster {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .MovieDetails__poster {
+    width: 200px;
+  }
+}
+
+@media (max-width: 550px) {
+  .MovieDetails__poster {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.MovieDetails__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.MovieDetails__info--opt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.MovieDetails__info--title {
+  color: tomato;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.MovieDetails__info--bookmark {
+  color: tomato;
+  cursor: pointer;
+}
+
+.MovieDetails__info--hr {
+  width: 100%;
+  border: 0.5px solid #2d3848;
+}
+
+.MovieDetails__info--buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+
+.MovieDetails__info--buttons--trailer {
+  background: tomato;
+  border: 0;
+  height: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.Divider {
+  border: 0.5px solid #2d3848;
+  margin-top: 30px;
+}
+/*# sourceMappingURL=MovieDetails.css.map */

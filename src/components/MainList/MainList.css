@@ -1,0 +1,43 @@
+.MoviesList {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 200px 200px 200px 200px;
+      grid-template-columns: 200px 200px 200px 200px 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+@media (max-width: 1440px) {
+  .MoviesList {
+    -ms-grid-columns: 200px 200px 200px 200px;
+        grid-template-columns: 200px 200px 200px 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .MoviesList {
+    -ms-grid-columns: 200px 200px 200px;
+        grid-template-columns: 200px 200px 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .MoviesList {
+    -ms-grid-columns: 200px 200px;
+        grid-template-columns: 200px 200px;
+  }
+}
+
+@media (max-width: 425px) {
+  .MoviesList {
+    -ms-grid-columns: 200px;
+        grid-template-columns: 200px;
+  }
+}
+
+.MoviesList img {
+  width: 200px;
+}
+/*# sourceMappingURL=MainList.css.map */
