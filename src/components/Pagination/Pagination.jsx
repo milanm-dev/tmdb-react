@@ -1,12 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../Loader/Loader";
 import "./Pagination.css";
 
 const Pagination = () => {
   const currentPage = useSelector((state) => state.state.currentPage);
+  const loading = useSelector((state) => state.state.loading);
   const dispatch = useDispatch();
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="Pagination">
       <button
         disabled={currentPage === 1}

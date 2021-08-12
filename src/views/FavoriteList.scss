@@ -1,4 +1,4 @@
-.MoviesList {
+.Favorite {
   display: grid;
   grid-template-columns: 200px 200px 200px 200px 200px;
   justify-content: center;
@@ -17,32 +17,25 @@
     grid-template-columns: 200px;
   }
 
-  &__container {
+  &__img {
     position: relative;
   }
 
-  &__img {
-    width: 200px;
-  }
-
-  &__bookmark {
+  &__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    filter: drop-shadow(5px 2px 5px black);
-    cursor: pointer;
-
-    &--b {
-      display: none;
-    }
-
+    top: -15px;
+    right: -15px;
     i {
-      border-top: 1px solid black;
-      border-right: 1px solid black;
-      border-left: 1px solid black;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      z-index: 2;
+      color: tomato;
+      cursor: pointer;
     }
   }
 }

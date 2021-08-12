@@ -10,6 +10,8 @@ const MovieDetails = ({ match }) => {
   const [movie, setMovie] = useState([]);
   const loading = useSelector((state) => state.state.loading);
   const dispatch = useDispatch();
+  const bookmark = useSelector((state) => state.state.bookmark);
+  const isBookmarked = bookmark.find((x) => x.id === movie.id);
 
   const fetchMovieDetails = async () => {
     dispatch({ type: "SET_LOADING", payload: true });
@@ -33,7 +35,7 @@ const MovieDetails = ({ match }) => {
       ) : (
         <div className="MovieDetails">
           <img
-            src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
             alt="poster"
             className="MovieDetails__poster"
           />
@@ -41,8 +43,21 @@ const MovieDetails = ({ match }) => {
             <div className="MovieDetails__info--opt">
               <div className="MovieDetails__info--title">{movie.title}</div>
               <div className="MovieDetails__info--bookmark">
-                <i className="fas fa-bookmark fa-2x"></i>
-                <i v-else className="far fa-bookmark fa-2x"></i>
+                {isBookmarked ? (
+                  <i
+                    className="fas fa-bookmark fa-2x"
+                    onClick={() =>
+                      dispatch({ type: "SET_BOOKMARK", payload: movie })
+                    }
+                  ></i>
+                ) : (
+                  <i
+                    className="far fa-bookmark fa-2x"
+                    onClick={() =>
+                      dispatch({ type: "SET_BOOKMARK", payload: movie })
+                    }
+                  ></i>
+                )}
               </div>
             </div>
             <p className="MovieDetails__info--tagline">{movie.tagline}</p>

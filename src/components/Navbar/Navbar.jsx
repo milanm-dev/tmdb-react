@@ -15,12 +15,12 @@ function Navbar() {
         >
           <i className="fas fa-video fa-lg"> </i>
         </Link>
-        <Link to="/movie" className="Header__favorite">
+        <Link to="/favorite" className="Header__favorite">
           FAVORITE LIST
         </Link>
       </div>
       <div className="Header__right">
-        <search-movies v-if="this.$route.path === '/'" />
+        {/* <search-movies v-if="this.$route.path === '/'" /> */}
         <a href="https://github.com/Lane876" target="_blank" rel="noreferrer">
           <img
             src="https://avatars.githubusercontent.com/u/52612617?v=4"

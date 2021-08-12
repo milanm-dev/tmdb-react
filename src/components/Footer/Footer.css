@@ -1,0 +1,17 @@
+.Footer {
+  height: 50px;
+  border-top: 1px solid #2d3848;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 5%;
+  margin-top: 30px;
+}
+
+.Footer a {
+  color: #fff;
+}
+/*# sourceMappingURL=Footer.css.map */

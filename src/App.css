@@ -1,4 +1,11 @@
 .App {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
 }
 /*# sourceMappingURL=App.css.map */

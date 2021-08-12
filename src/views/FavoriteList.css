@@ -1,4 +1,4 @@
-.MoviesList {
+.Favorite {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 200px 200px 200px 200px 200px;
@@ -10,60 +10,59 @@
 }
 
 @media (max-width: 1440px) {
-  .MoviesList {
+  .Favorite {
     -ms-grid-columns: 200px 200px 200px 200px;
         grid-template-columns: 200px 200px 200px 200px;
   }
 }
 
 @media (max-width: 1024px) {
-  .MoviesList {
+  .Favorite {
     -ms-grid-columns: 200px 200px 200px;
         grid-template-columns: 200px 200px 200px;
   }
 }
 
 @media (max-width: 768px) {
-  .MoviesList {
+  .Favorite {
     -ms-grid-columns: 200px 200px;
         grid-template-columns: 200px 200px;
   }
 }
 
 @media (max-width: 425px) {
-  .MoviesList {
+  .Favorite {
     -ms-grid-columns: 200px;
         grid-template-columns: 200px;
   }
 }
 
-.MoviesList__container {
+.Favorite__img {
   position: relative;
 }
 
-.MoviesList__img {
-  width: 200px;
+.Favorite__close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
 }
 
-.MoviesList__bookmark {
-  position: absolute;
-  top: 0;
-  right: 0;
+.Favorite__close i {
   z-index: 2;
-  -webkit-filter: drop-shadow(5px 2px 5px black);
-          filter: drop-shadow(5px 2px 5px black);
+  color: tomato;
   cursor: pointer;
 }
-
-.MoviesList__bookmark--b {
-  display: none;
-}
-
-.MoviesList__bookmark i {
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-/*# sourceMappingURL=MainList.css.map */
+/*# sourceMappingURL=FavoriteList.css.map */
