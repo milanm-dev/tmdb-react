@@ -15,6 +15,12 @@ const Pagination = () => {
     !searchMovies && (
       <div className="Pagination">
         <button
+          className="Pagination__btns"
+          onClick={() => dispatch({ type: "CURRENT_PAGE", payload: 1 })}
+        >
+          <i className="fas fa-angle-double-left"></i>
+        </button>
+        <button
           disabled={currentPage === 1}
           className="Pagination__button"
           onClick={() =>
@@ -22,13 +28,6 @@ const Pagination = () => {
           }
         >
           <i className="fas fa-angle-left"></i>
-        </button>
-
-        <button
-          className="Pagination__btns"
-          onClick={() => dispatch({ type: "CURRENT_PAGE", payload: 1 })}
-        >
-          <i className="fas fa-angle-double-left"></i>
         </button>
 
         <button
@@ -60,13 +59,6 @@ const Pagination = () => {
         </button>
 
         <button
-          className="Pagination__btns"
-          onClick={() => dispatch({ type: "CURRENT_PAGE", payload: 500 })}
-        >
-          <i className="fas fa-angle-double-right"></i>
-        </button>
-
-        <button
           disabled={currentPage === 500}
           className="Pagination__button"
           onClick={() =>
@@ -74,6 +66,12 @@ const Pagination = () => {
           }
         >
           <i className="fas fa-angle-right"></i>
+        </button>
+        <button
+          className="Pagination__btns"
+          onClick={() => dispatch({ type: "CURRENT_PAGE", payload: 500 })}
+        >
+          <i className="fas fa-angle-double-right"></i>
         </button>
       </div>
     )
