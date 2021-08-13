@@ -9,6 +9,7 @@ const MainList = ({ movies }) => {
   const bookmark = useSelector((state) => state.state.bookmark);
   const loading = useSelector((state) => state.state.loading);
   const searchMovies = useSelector((state) => state.state.searchMovies);
+  const query = useSelector((state) => state.state.query);
 
   const dispatch = useDispatch();
 
@@ -42,6 +43,11 @@ const MainList = ({ movies }) => {
           </div>
         </div>
       ))}
+      {searchMovies.length === 0 && (
+        <div className="MoviesList__noresult">
+          No results for "<span>{query}</span>"
+        </div>
+      )}
     </div>
   ) : (
     <div className="MoviesList">

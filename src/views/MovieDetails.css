@@ -103,6 +103,16 @@
   padding: 10px;
 }
 
+.MovieDetails__trailer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
 .Divider {
   border: 0.5px solid #2d3848;
   margin-top: 30px;
@@ -116,54 +126,43 @@
 }
 
 .Cast {
-  display: -ms-grid;
-  display: grid;
   width: 90%;
   margin: 0 auto;
-  -ms-grid-columns: 200px 200px 200px 200px 200px 200px;
-      grid-template-columns: 200px 200px 200px 200px 200px 200px;
+}
+
+.Cast__actors {
+  display: -ms-grid;
+  display: grid;
   gap: 10px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-@media (max-width: 1440px) {
-  .Cast {
-    -ms-grid-columns: 200px 200px 200px 200px 200px 200px;
-        grid-template-columns: 200px 200px 200px 200px 200px 200px;
+@media (max-width: 1400px) {
+  .Cast__actors {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
-@media (max-width: 1340px) {
-  .Cast {
-    -ms-grid-columns: 200px 200px 200px 200px 200px;
-        grid-template-columns: 200px 200px 200px 200px 200px;
+@media (max-width: 1024px) {
+  .Cast__actors {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (max-width: 1124px) {
-  .Cast {
-    -ms-grid-columns: 200px 200px 200px 200px;
-        grid-template-columns: 200px 200px 200px 200px;
+@media (max-width: 768px) {
+  .Cast__actors {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 900px) {
-  .Cast {
-    -ms-grid-columns: 200px 200px 200px;
-        grid-template-columns: 200px 200px 200px;
-  }
-}
-
-@media (max-width: 672px) {
-  .Cast {
-    -ms-grid-columns: 200px 200px;
-        grid-template-columns: 200px 200px;
-  }
-}
-
-@media (max-width: 460px) {
-  .Cast {
-    -ms-grid-columns: 200px;
-        grid-template-columns: 200px;
+@media (max-width: 470px) {
+  .Cast__actors {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 /*# sourceMappingURL=MovieDetails.css.map */

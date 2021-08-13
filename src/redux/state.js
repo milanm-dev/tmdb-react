@@ -4,6 +4,8 @@ const initialState = {
   movies: [],
   bookmark: [],
   searchMovies: [],
+  modal: false,
+  query: "",
 };
 
 const state = (state = initialState, action) => {
@@ -16,6 +18,10 @@ const state = (state = initialState, action) => {
       return { ...state, movies: action.payload };
     case "SET_SEARCHMOVIES":
       return { ...state, searchMovies: action.payload };
+    case "SET_QUERY":
+      return { ...state, query: action.payload };
+    case "SET_MODAL":
+      return { ...state, modal: action.payload };
     case "SET_BOOKMARK":
       const exist = state.bookmark.find((x) => x.id === action.payload.id);
       if (exist) {

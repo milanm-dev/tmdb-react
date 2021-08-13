@@ -10,6 +10,7 @@ const Search = () => {
 
   const handleInput = (e) => {
     setQuery(e.target.value);
+    dispatch({ type: "SET_QUERY", payload: e.target.value });
   };
 
   const fetchSearchMovies = async () => {
