@@ -5,5 +5,10 @@
 
 .Pagination button {
   cursor: pointer;
+  background: white;
+  padding: 5px;
+  outline: none;
+  border: 1px solid tomato;
+  margin: 2px;
 }
 /*# sourceMappingURL=Pagination.css.map */

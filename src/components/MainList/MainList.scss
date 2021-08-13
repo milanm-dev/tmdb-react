@@ -33,16 +33,13 @@
     filter: drop-shadow(5px 2px 5px black);
     cursor: pointer;
 
-    &--b {
-      display: none;
-    }
-
     i {
-      border-top: 1px solid black;
-      border-right: 1px solid black;
-      border-left: 1px solid black;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      border-top: 0.5px solid white;
+      border-right: 0.5px solid white;
+      border-left: 0.5px solid white;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      color: tomato;
     }
   }
 }

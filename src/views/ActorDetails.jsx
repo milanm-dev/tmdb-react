@@ -71,6 +71,10 @@ const ActorDetails = ({ match }) => {
 
         <div>
           <div className="ActorDetails__name">{actor.name}</div>
+          <div className="ActorDetails__birthday">
+            <i class="fas fa-birthday-cake"></i> {actor.birthday},{" "}
+            {actor.place_of_birth}
+          </div>
           <div>{actor.biography}</div>
         </div>
       </div>

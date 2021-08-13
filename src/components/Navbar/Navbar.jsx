@@ -1,11 +1,13 @@
 import React from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Search from "../Search/Search";
 
 function Navbar() {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.state.currentPage);
+  const path = useLocation();
 
   return (
     <div className="Header">
@@ -23,7 +25,7 @@ function Navbar() {
         </Link>
       </div>
       <div className="Header__right">
-        {/* <search-movies v-if="this.$route.path === '/'" /> */}
+        {path.pathname === "/" && <Search />}
         <a href="https://github.com/Lane876" target="_blank" rel="noreferrer">
           <img
             src="https://avatars.githubusercontent.com/u/52612617?v=4"

@@ -50,6 +50,10 @@
   margin-bottom: 20px;
 }
 
+.ActorDetails__birthday {
+  margin-bottom: 20px;
+}
+
 .ActorDetails__divider {
   border: 0.5px solid #2d3848;
   margin-top: 30px;
