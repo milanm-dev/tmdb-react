@@ -38,6 +38,7 @@ const Search = () => {
         name="search"
         placeholder="Search..."
         onChange={handleInput}
+        value={query}
       />
     </div>
   );
