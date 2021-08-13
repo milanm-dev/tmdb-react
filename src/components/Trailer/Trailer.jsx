@@ -2,8 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import "./Trailer.css";
 
-const Trailer = ({ content, setModal }) => {
-  const dispatch = useDispatch();
+const Trailer = ({ content }) => {
   return (
     <div class="Iframe">
       <iframe
@@ -13,6 +12,7 @@ const Trailer = ({ content, setModal }) => {
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
+        title="youtube"
       ></iframe>
     </div>
   );
