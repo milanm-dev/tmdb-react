@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import "./Trailer.css";
 
 const Trailer = ({ content }) => {
