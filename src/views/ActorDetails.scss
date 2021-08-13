@@ -1,0 +1,58 @@
+.ActorDetails {
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 90%;
+    margin: 0 auto;
+    gap: 50px;
+    @media (max-width: 768px) {
+      gap: 50px;
+    }
+    @media (max-width: 550px) {
+      grid-template-columns: 1fr;
+    }
+    &--poster {
+      width: 300px;
+      @media (max-width: 1024px) {
+        width: 300px;
+      }
+      @media (max-width: 768px) {
+        width: 200px;
+      }
+      @media (max-width: 550px) {
+        width: 300px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  &__divider {
+    border: 0.5px solid #2d3848;
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  &__subtitle {
+    margin-left: 5%;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+  &__credits {
+    margin-left: 5%;
+
+    &--info {
+      padding: 5px 0px;
+
+      &--link {
+        color: white;
+      }
+    }
+  }
+}

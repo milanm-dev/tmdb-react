@@ -39,3 +39,19 @@
     }
   }
 }
+.Empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  img {
+    width: 200px;
+  }
+}

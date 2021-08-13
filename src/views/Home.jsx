@@ -13,13 +13,18 @@ const Home = () => {
 
   const fetchMovies = async () => {
     dispatch({ type: "SET_LOADING", payload: true });
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${currentPage}`
-    );
-    const data = await res.json();
-    setMovies(data.results);
-    dispatch({ type: "SET_LOADING", payload: false });
-    dispatch({ type: "SET_MOVIES", payload: data.results });
+    try {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${currentPage}`
+      );
+      const data = await res.json();
+      setMovies(data.results);
+      dispatch({ type: "SET_MOVIES", payload: data.results });
+    } catch (error) {
+      console.warn(error);
+    } finally {
+      dispatch({ type: "SET_LOADING", payload: false });
+    }
   };
 
   useEffect(() => {

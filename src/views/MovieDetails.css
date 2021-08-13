@@ -106,5 +106,22 @@
 .Divider {
   border: 0.5px solid #2d3848;
   margin-top: 30px;
+  width: 100%;
+}
+
+.Subtitle {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-left: 5%;
+}
+
+.Cast {
+  display: -ms-grid;
+  display: grid;
+  width: 90%;
+  margin: 0 auto;
+  -ms-grid-columns: 200px 200px 200px 200px 200px 200px;
+      grid-template-columns: 200px 200px 200px 200px 200px 200px;
+  gap: 10px;
 }
 /*# sourceMappingURL=MovieDetails.css.map */

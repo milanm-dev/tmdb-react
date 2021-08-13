@@ -1,0 +1,76 @@
+.ActorDetails__info {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  width: 90%;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+@media (max-width: 768px) {
+  .ActorDetails__info {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 550px) {
+  .ActorDetails__info {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.ActorDetails__info--poster {
+  width: 300px;
+}
+
+@media (max-width: 1024px) {
+  .ActorDetails__info--poster {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ActorDetails__info--poster {
+    width: 200px;
+  }
+}
+
+@media (max-width: 550px) {
+  .ActorDetails__info--poster {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.ActorDetails__name {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.ActorDetails__divider {
+  border: 0.5px solid #2d3848;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.ActorDetails__subtitle {
+  margin-left: 5%;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.ActorDetails__credits {
+  margin-left: 5%;
+}
+
+.ActorDetails__credits--info {
+  padding: 5px 0px;
+}
+
+.ActorDetails__credits--info--link {
+  color: white;
+}
+/*# sourceMappingURL=ActorDetails.css.map */
