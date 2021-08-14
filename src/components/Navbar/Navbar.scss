@@ -10,7 +10,7 @@
   @media (max-width: 768px) {
     flex-direction: column;
     height: 100px;
-    justify-content: center;
+    justify-content: space-around;
   }
   &__left {
     display: flex;

@@ -22,9 +22,8 @@
         -ms-flex-direction: column;
             flex-direction: column;
     height: 100px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
 }
 
