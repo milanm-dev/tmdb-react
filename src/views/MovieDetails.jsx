@@ -6,7 +6,6 @@ import { API_KEY } from "../config";
 import "./MovieDetails.css";
 import { Link } from "react-router-dom";
 import Trailer from "../components/Trailer/Trailer";
-import placeholder from "../components/NotFound/placeholder.png";
 
 const MovieDetails = ({ match }) => {
   const id = match.params.id;
