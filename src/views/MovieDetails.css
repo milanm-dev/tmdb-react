@@ -163,6 +163,7 @@
   .Cast__actors {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=MovieDetails.css.map */
