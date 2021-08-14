@@ -6,6 +6,7 @@ import { API_KEY } from "../config";
 import "./MovieDetails.css";
 import { Link } from "react-router-dom";
 import Trailer from "../components/Trailer/Trailer";
+import placeholder from "../components/NotFound/placeholder.png";
 
 const MovieDetails = ({ match }) => {
   const id = match.params.id;
@@ -74,7 +75,11 @@ const MovieDetails = ({ match }) => {
         <>
           <div className="MovieDetails">
             <img
-              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+                  : "https://via.placeholder.com/200x300"
+              }
               alt="poster"
               className="MovieDetails__poster"
             />
@@ -129,7 +134,11 @@ const MovieDetails = ({ match }) => {
                   i < 6 && (
                     <Link to={`/actor/${x.id}`} key={i}>
                       <img
-                        src={`https://image.tmdb.org/t/p/w200/${x.profile_path}`}
+                        src={
+                          x.profile_path
+                            ? `https://image.tmdb.org/t/p/w200/${x.profile_path}`
+                            : "https://via.placeholder.com/200x300"
+                        }
                         alt="actor"
                       />
                     </Link>

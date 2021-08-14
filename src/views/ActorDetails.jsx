@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./ActorDetails.css";
 import Loader from "../components/Loader/Loader";
+import placeholder from "../components/NotFound/placeholder.png";
 
 const ActorDetails = ({ match }) => {
   const id = match.params.id;
@@ -64,7 +65,11 @@ const ActorDetails = ({ match }) => {
     <div className="ActorDetails">
       <div className="ActorDetails__info">
         <img
-          src={`https://image.tmdb.org/t/p/w300/${actor.profile_path}`}
+          src={
+            actor.profile_path
+              ? `https://image.tmdb.org/t/p/w300/${actor.profile_path}`
+              : placeholder
+          }
           alt="actor_photo"
           className="ActorDetails__info--poster"
         />
@@ -72,7 +77,7 @@ const ActorDetails = ({ match }) => {
         <div>
           <div className="ActorDetails__name">{actor.name}</div>
           <div className="ActorDetails__birthday">
-            <i class="fas fa-birthday-cake"></i> {actor.birthday},{" "}
+            <i className="fas fa-birthday-cake"></i> {actor.birthday},{" "}
             {actor.place_of_birth}
           </div>
           <div>{actor.biography}</div>

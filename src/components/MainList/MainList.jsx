@@ -4,6 +4,7 @@ import "./MainList.css";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
 import { useEffect } from "react";
+import placeholder from "../../components/NotFound/placeholder.png";
 
 const MainList = ({ movies }) => {
   const bookmark = useSelector((state) => state.state.bookmark);
@@ -25,7 +26,11 @@ const MainList = ({ movies }) => {
         <div key={i} className="MoviesList__container">
           <Link to={`/movie/${x.id}`}>
             <img
-              src={`https://image.tmdb.org/t/p/w300${x.poster_path}`}
+              src={
+                x.poster_path
+                  ? `https://image.tmdb.org/t/p/w300${x.poster_path}`
+                  : placeholder
+              }
               alt="poster"
               className="MoviesList__img"
             />
