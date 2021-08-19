@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { API_KEY } from "../../config";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Search.css";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
+  const preserveQuery = useSelector((state) => state.state.query);
 
   const handleInput = (e) => {
     setQuery(e.target.value);
@@ -17,7 +18,7 @@ const Search = () => {
     dispatch({ type: "SET_LOADING", payload: true });
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${preserveQuery}`
       );
       const data = await res.json();
       dispatch({ type: "SET_SEARCHMOVIES", payload: data.results });
@@ -40,7 +41,7 @@ const Search = () => {
         name="search"
         placeholder="Search..."
         onChange={handleInput}
-        value={query}
+        value={preserveQuery}
       />
     </div>
   );

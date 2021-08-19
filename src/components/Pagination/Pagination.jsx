@@ -23,6 +23,7 @@ const Pagination = () => {
         <button
           disabled={currentPage === 1}
           className="Pagination__button"
+          style={{ marginRight: "10px" }}
           onClick={() =>
             dispatch({ type: "CURRENT_PAGE", payload: currentPage - 1 })
           }
@@ -30,7 +31,7 @@ const Pagination = () => {
           <i className="fas fa-angle-left"></i>
         </button>
 
-        <button
+        {/* <button
           className="Pagination__btns"
           onClick={() =>
             dispatch({
@@ -40,13 +41,13 @@ const Pagination = () => {
           }
         >
           {currentPage === 1 ? 1 : currentPage - 1}
-        </button>
+        </button> */}
 
         <button className="Pagination__current">
           {currentPage === 1 ? 1 : currentPage}{" "}
         </button>
 
-        <button
+        {/* <button
           className="Pagination__btns"
           onClick={() =>
             dispatch({
@@ -56,11 +57,12 @@ const Pagination = () => {
           }
         >
           {currentPage === 500 ? 500 : currentPage + 1}
-        </button>
+        </button> */}
 
         <button
           disabled={currentPage === 500}
           className="Pagination__button"
+          style={{ marginLeft: "10px" }}
           onClick={() =>
             dispatch({ type: "CURRENT_PAGE", payload: currentPage + 1 })
           }

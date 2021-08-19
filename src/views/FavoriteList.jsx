@@ -19,7 +19,11 @@ const FavoriteList = () => {
         <div key={i} className="Favorite__img">
           <Link to={`/movie/${x.id}`}>
             <img
-              src={`https://image.tmdb.org/t/p/w200${x.poster_path}`}
+              src={
+                x.poster_path
+                  ? `https://image.tmdb.org/t/p/w200${x.poster_path}`
+                  : "https://via.placeholder.com/200x300"
+              }
               alt="poster"
             />
           </Link>

@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./ActorDetails.css";
 import Loader from "../components/Loader/Loader";
-import placeholder from "../components/NotFound/placeholder.png";
 
 const ActorDetails = ({ match }) => {
   const id = match.params.id;
@@ -68,7 +67,7 @@ const ActorDetails = ({ match }) => {
           src={
             actor.profile_path
               ? `https://image.tmdb.org/t/p/w300/${actor.profile_path}`
-              : placeholder
+              : "https://via.placeholder.com/200x300"
           }
           alt="actor_photo"
           className="ActorDetails__info--poster"

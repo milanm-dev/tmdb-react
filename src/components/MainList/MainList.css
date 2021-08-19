@@ -1,8 +1,8 @@
 .MoviesList {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 200px 200px 200px 200px 200px;
-      grid-template-columns: 200px 200px 200px 200px 200px;
+  -ms-grid-columns: (200px)[5];
+      grid-template-columns: repeat(5, 200px);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -12,29 +12,29 @@
 
 @media (max-width: 1440px) {
   .MoviesList {
-    -ms-grid-columns: 200px 200px 200px 200px;
-        grid-template-columns: 200px 200px 200px 200px;
+    -ms-grid-columns: (200px)[4];
+        grid-template-columns: repeat(4, 200px);
   }
 }
 
 @media (max-width: 1024px) {
   .MoviesList {
-    -ms-grid-columns: 200px 200px 200px;
-        grid-template-columns: 200px 200px 200px;
+    -ms-grid-columns: (200px)[3];
+        grid-template-columns: repeat(3, 200px);
   }
 }
 
 @media (max-width: 768px) {
   .MoviesList {
-    -ms-grid-columns: 200px 200px;
-        grid-template-columns: 200px 200px;
+    -ms-grid-columns: (200px)[2];
+        grid-template-columns: repeat(2, 200px);
   }
 }
 
 @media (max-width: 425px) {
   .MoviesList {
-    -ms-grid-columns: 200px;
-        grid-template-columns: 200px;
+    -ms-grid-columns: 300px;
+        grid-template-columns: 300px;
   }
 }
 
@@ -44,6 +44,12 @@
 
 .MoviesList__img {
   width: 200px;
+}
+
+@media (max-width: 425px) {
+  .MoviesList__img {
+    width: 300px;
+  }
 }
 
 .MoviesList__bookmark {

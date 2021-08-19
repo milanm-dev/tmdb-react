@@ -1,21 +1,21 @@
 .MoviesList {
   display: grid;
-  grid-template-columns: 200px 200px 200px 200px 200px;
+  grid-template-columns: repeat(5, 200px);
   justify-content: center;
   gap: 30px;
   position: relative;
 
   @media (max-width: 1440px) {
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: repeat(4, 200px);
   }
   @media (max-width: 1024px) {
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: repeat(3, 200px);
   }
   @media (max-width: 768px) {
-    grid-template-columns: 200px 200px;
+    grid-template-columns: repeat(2, 200px);
   }
   @media (max-width: 425px) {
-    grid-template-columns: 200px;
+    grid-template-columns: 300px;
   }
 
   &__container {
@@ -24,6 +24,10 @@
 
   &__img {
     width: 200px;
+
+    @media (max-width: 425px) {
+      width: 300px;
+    }
   }
 
   &__bookmark {
