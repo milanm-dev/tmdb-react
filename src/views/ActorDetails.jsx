@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./ActorDetails.css";
 import Loader from "../components/Loader/Loader";
+import { motion } from "framer-motion";
 
 const ActorDetails = ({ match }) => {
   const id = match.params.id;
@@ -13,6 +14,21 @@ const ActorDetails = ({ match }) => {
   const [credits, setCredits] = useState([]);
   const loading = useSelector((state) => state.state.loading);
   const dispatch = useDispatch();
+
+  const transitionVariant = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        type: "spring",
+      },
+    },
+  };
 
   const fetchActorDetails = async () => {
     dispatch({ type: "SET_LOADING", payload: true });
@@ -61,7 +77,12 @@ const ActorDetails = ({ match }) => {
   return loading ? (
     <Loader />
   ) : (
-    <div className="ActorDetails">
+    <motion.div
+      className="ActorDetails"
+      variants={transitionVariant}
+      animate="visible"
+      initial="hidden"
+    >
       <div className="ActorDetails__info">
         <img
           src={
@@ -100,7 +121,7 @@ const ActorDetails = ({ match }) => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

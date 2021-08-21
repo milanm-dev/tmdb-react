@@ -4,6 +4,7 @@ import Loader from "../components/Loader/Loader";
 import { Link } from "react-router-dom";
 import "./FavoriteList.css";
 import doggo from "../components/NotFound/doggo.png";
+import { motion } from "framer-motion";
 
 const FavoriteList = () => {
   const bookmark = useSelector((state) => state.state.bookmark);
@@ -11,12 +12,58 @@ const FavoriteList = () => {
   const dispatch = useDispatch();
   const isEmpty = bookmark.length === 0;
 
+  const favoriteVariant = {
+    hidden: {
+      transition: {
+        when: "afterChildren",
+      },
+    },
+    visible: {
+      transition: {
+        delay: 0.1,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemsVariant = {
+    hidden: {
+      y: -10,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+  const emptyVariant = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        type: "spring",
+        stiffness: 500,
+      },
+    },
+  };
+
   return loading ? (
     <Loader />
   ) : !isEmpty ? (
-    <div className="Favorite">
+    <motion.div
+      className="Favorite"
+      variants={favoriteVariant}
+      animate="visible"
+      initial="hidden"
+    >
       {bookmark.map((x, i) => (
-        <div key={i} className="Favorite__img">
+        <motion.div key={i} className="Favorite__img" variants={itemsVariant}>
           <Link to={`/movie/${x.id}`}>
             <img
               src={
@@ -31,16 +78,26 @@ const FavoriteList = () => {
             className="Favorite__close"
             onClick={() => dispatch({ type: "SET_BOOKMARK", payload: x })}
           >
-            <i className="far fa-times-circle fa-lg"></i>
+            <motion.i
+              className="far fa-times-circle fa-lg"
+              whileHover={{ scale: 1.2 }}
+            ></motion.i>
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   ) : (
-    <div className="Empty">
-      <div>YOUR FAVORITE LIST IS EMPTY</div>
-      <img src={doggo} alt="doggo" />
-    </div>
+    <motion.div
+      className="Empty"
+      variants={favoriteVariant}
+      animate="visible"
+      initial="hidden"
+    >
+      <motion.div variants={emptyVariant}>
+        YOUR FAVORITE LIST IS EMPTY
+      </motion.div>
+      <motion.img src={doggo} alt="doggo" variants={emptyVariant} />
+    </motion.div>
   );
 };
 

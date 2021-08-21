@@ -28,7 +28,7 @@ const MainList = ({ movies }) => {
       transition: {
         delay: 0.1,
         when: "beforeChildren",
-        staggerChildren: 0.03,
+        staggerChildren: 0.05,
       },
     },
   };

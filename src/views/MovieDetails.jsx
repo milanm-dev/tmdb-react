@@ -6,6 +6,7 @@ import { API_KEY } from "../config";
 import "./MovieDetails.css";
 import { Link } from "react-router-dom";
 import Trailer from "../components/Trailer/Trailer";
+import { motion } from "framer-motion";
 
 const MovieDetails = ({ match }) => {
   const id = match.params.id;
@@ -66,13 +67,59 @@ const MovieDetails = ({ match }) => {
     }
   }, [modal]);
 
+  const transitionVariant = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.1,
+        type: "spring",
+      },
+    },
+  };
+
+  const castVariant = {
+    hidden: {
+      transition: {
+        when: "afterChildren",
+      },
+    },
+    visible: {
+      transition: {
+        delay: 0.1,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const imgVariant = {
+    hidden: {
+      y: -10,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <div className="MovieDetails">
+          <motion.div
+            className="MovieDetails"
+            variants={transitionVariant}
+            animate="visible"
+            initial="hidden"
+          >
             <img
               src={
                 movie.poster_path
@@ -124,27 +171,34 @@ const MovieDetails = ({ match }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
           <hr className="Divider" />
           <p className="Subtitle">Cast</p>
           <div className="Cast">
-            <div className="Cast__actors">
+            <motion.div
+              className="Cast__actors"
+              variants={castVariant}
+              animate="visible"
+              initial="hidden"
+            >
               {cast.map(
                 (x, i) =>
                   i < 6 && (
-                    <Link to={`/actor/${x.id}`} key={i}>
-                      <img
-                        src={
-                          x.profile_path
-                            ? `https://image.tmdb.org/t/p/w200/${x.profile_path}`
-                            : "https://via.placeholder.com/200x300"
-                        }
-                        alt="actor"
-                      />
-                    </Link>
+                    <motion.div variants={imgVariant}>
+                      <Link to={`/actor/${x.id}`} key={i}>
+                        <img
+                          src={
+                            x.profile_path
+                              ? `https://image.tmdb.org/t/p/w200/${x.profile_path}`
+                              : "https://via.placeholder.com/200x300"
+                          }
+                          alt="actor"
+                        />
+                      </Link>
+                    </motion.div>
                   )
               )}
-            </div>
+            </motion.div>
           </div>
         </>
       )}

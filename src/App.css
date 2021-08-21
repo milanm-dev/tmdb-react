@@ -1,4 +1,5 @@
 .App {
+  overflow-x: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   min-height: 100vh;
   display: -ms-grid;

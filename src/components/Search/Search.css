@@ -3,6 +3,12 @@
   margin-right: 30px;
 }
 
+@media (max-width: 768px) {
+  .Search {
+    margin-right: 10px;
+  }
+}
+
 .Search input {
   padding: 5px 10px;
   border-radius: 5px;
@@ -10,6 +16,12 @@
   width: 250px;
   outline-color: tomato;
   margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .Search input {
+    width: 200px;
+  }
 }
 
 .Search__delete {
