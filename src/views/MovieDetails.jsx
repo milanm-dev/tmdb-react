@@ -118,6 +118,7 @@ const MovieDetails = ({ match }) => {
                 <button
                   className="MovieDetails__info--buttons--trailer"
                   onClick={fetchTrailer}
+                  aria-label="youtube"
                 >
                   <i className="fab fa-youtube"></i> Watch Trailer
                 </button>

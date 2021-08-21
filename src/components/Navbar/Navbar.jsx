@@ -26,7 +26,12 @@ function Navbar() {
       </div>
       <div className="Header__right">
         {path.pathname === "/" && <Search />}
-        <a href="https://github.com/Lane876" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/Lane876"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="github"
+        >
           <img
             src="https://avatars.githubusercontent.com/u/52612617?v=4"
             alt="avatar"

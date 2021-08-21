@@ -1,3 +1,8 @@
+.Search {
+  position: relative;
+  margin-right: 30px;
+}
+
 .Search input {
   padding: 5px 10px;
   border-radius: 5px;
@@ -5,5 +10,30 @@
   width: 250px;
   outline-color: tomato;
   margin-bottom: 5px;
+}
+
+.Search__delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+.Search__delete i {
+  z-index: 2;
+  color: tomato;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Search.css.map */

@@ -32,7 +32,9 @@ const Search = () => {
   useEffect(() => {
     fetchSearchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }, [query, handleInput]);
+
+  console.log(query);
 
   return (
     <div className="Search">
@@ -43,6 +45,14 @@ const Search = () => {
         onChange={handleInput}
         value={preserveQuery}
       />
+      {preserveQuery && (
+        <div
+          className="Search__delete"
+          onClick={() => dispatch({ type: "SET_QUERY", payload: "" })}
+        >
+          <i className="far fa-times-circle fa-lg"></i>
+        </div>
+      )}
     </div>
   );
 };
