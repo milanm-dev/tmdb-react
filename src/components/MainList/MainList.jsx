@@ -4,6 +4,7 @@ import "./MainList.css";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const MainList = ({ movies }) => {
   const bookmark = useSelector((state) => state.state.bookmark);
@@ -17,12 +18,48 @@ const MainList = ({ movies }) => {
     window.scroll(0, 0);
   }, []);
 
+  const movieVariant = {
+    hidden: {
+      transition: {
+        when: "afterChildren",
+      },
+    },
+    visible: {
+      transition: {
+        delay: 0.1,
+        when: "beforeChildren",
+        staggerChildren: 0.03,
+      },
+    },
+  };
+
+  const imgVariant = {
+    hidden: {
+      y: -10,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return loading ? (
     <Loader />
   ) : searchMovies ? (
-    <div className="MoviesList">
+    <motion.div
+      className="MoviesList"
+      variants={movieVariant}
+      animate="visible"
+      initial="hidden"
+    >
       {searchMovies?.map((x, i) => (
-        <div key={i} className="MoviesList__container">
+        <motion.div
+          key={i}
+          className="MoviesList__container"
+          variants={imgVariant}
+          whileHover={{ scale: 1.05 }}
+        >
           <Link to={`/movie/${x.id}`}>
             <img
               src={
@@ -45,18 +82,28 @@ const MainList = ({ movies }) => {
               <i className="far fa-bookmark fa-2x"></i>
             )}
           </div>
-        </div>
+        </motion.div>
       ))}
       {searchMovies.length === 0 && (
         <div className="MoviesList__noresult">
           No results for "<span>{query}</span>"
         </div>
       )}
-    </div>
+    </motion.div>
   ) : (
-    <div className="MoviesList">
+    <motion.div
+      className="MoviesList"
+      variants={movieVariant}
+      animate="visible"
+      initial="hidden"
+    >
       {movies.map((x, i) => (
-        <div key={i} className="MoviesList__container">
+        <motion.div
+          key={i}
+          className="MoviesList__container"
+          variants={imgVariant}
+          whileHover={{ scale: 1.05 }}
+        >
           <Link to={`/movie/${x.id}`}>
             <img
               src={
@@ -79,9 +126,9 @@ const MainList = ({ movies }) => {
               <i className="far fa-bookmark fa-2x"></i>
             )}
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

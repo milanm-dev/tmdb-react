@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { API_KEY } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import "./Search.css";
+import { motion } from "framer-motion";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -46,12 +47,13 @@ const Search = () => {
         value={preserveQuery}
       />
       {preserveQuery && (
-        <div
+        <motion.div
           className="Search__delete"
           onClick={() => dispatch({ type: "SET_QUERY", payload: "" })}
+          whileHover={{ scale: 1.05 }}
         >
           <i className="far fa-times-circle fa-lg"></i>
-        </div>
+        </motion.div>
       )}
     </div>
   );
