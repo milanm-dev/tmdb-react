@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader/Loader";
 import { Link } from "react-router-dom";
-import "./FavoriteList.css";
+import "./FavoriteList.scss";
 import doggo from "../components/NotFound/doggo.png";
 import { motion } from "framer-motion";
 

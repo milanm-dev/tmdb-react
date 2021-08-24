@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { API_KEY } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
-import "./Search.css";
+import "./Search.scss";
 import { motion } from "framer-motion";
 
 const Search = () => {

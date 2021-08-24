@@ -1,5 +1,5 @@
 import React from "react";
-import "./Trailer.css";
+import "./Trailer.scss";
 
 const Trailer = ({ content }) => {
   return (

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader/Loader";
 import { API_KEY } from "../config";
-import "./MovieDetails.css";
+import "./MovieDetails.scss";
 import { Link } from "react-router-dom";
 import Trailer from "../components/Trailer/Trailer";
 import { motion } from "framer-motion";

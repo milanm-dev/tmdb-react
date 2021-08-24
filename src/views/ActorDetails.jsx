@@ -4,7 +4,7 @@ import { useState } from "react";
 import { API_KEY } from "../config";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import "./ActorDetails.css";
+import "./ActorDetails.scss";
 import Loader from "../components/Loader/Loader";
 import { motion } from "framer-motion";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./NotFound.css";
+import "./NotFound.scss";
 import doggo from "./doggo.png";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
