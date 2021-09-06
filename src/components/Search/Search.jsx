@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { API_KEY } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
-import "./Search.scss";
 import { motion } from "framer-motion";
+import "./Search.scss";
 
 const Search = () => {
   const [query, setQuery] = useState("");

@@ -1,8 +1,8 @@
 import React from "react";
-import "./Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "../Search/Search";
+import "./Navbar.scss";
 
 function Navbar() {
   const dispatch = useDispatch();

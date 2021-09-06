@@ -4,9 +4,9 @@ import { useState } from "react";
 import { API_KEY } from "../config";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import "./ActorDetails.scss";
 import Loader from "../components/Loader/Loader";
 import { motion } from "framer-motion";
+import "./ActorDetails.scss";
 
 const ActorDetails = ({ match }) => {
   const id = match.params.id;

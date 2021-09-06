@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader/Loader";
 import { API_KEY } from "../config";
-import "./MovieDetails.scss";
 import { Link } from "react-router-dom";
 import Trailer from "../components/Trailer/Trailer";
 import { motion } from "framer-motion";
+import "./MovieDetails.scss";
 
 const MovieDetails = ({ match }) => {
   const id = match.params.id;
