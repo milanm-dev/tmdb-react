@@ -36,7 +36,6 @@ const MovieDetails = ({ match }) => {
   };
 
   const fetchTrailer = async () => {
-    dispatch({ type: "SET_LOADING", payload: true });
     try {
       const res = await fetch(
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`
@@ -45,6 +44,7 @@ const MovieDetails = ({ match }) => {
       setContent(data?.results[0]?.key);
       dispatch({ type: "SET_MODAL", payload: true });
     } catch (error) {
+      dispatch({ type: "SET_LOADING", payload: true });
       console.warn(error);
     } finally {
       dispatch({ type: "SET_LOADING", payload: false });
