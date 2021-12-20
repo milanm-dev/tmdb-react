@@ -8,6 +8,7 @@ import "./Search.scss";
 
 const Search = () => {
   const [query, setQuery] = useState("");
+  const [emptyQuery, setEmptyQuery] = useState(true);
   const dispatch = useDispatch();
   const preserveQuery = useSelector((state) => state.state.query);
   const inputRef = useRef("");
@@ -17,12 +18,18 @@ const Search = () => {
     setQuery(e.target.value);
     dispatch({ type: "SET_QUERY", payload: e.target.value });
     inputRef.current = e.target.value;
+    if (query === "") {
+      setEmptyQuery(false);
+    }
   };
 
   const handleDelete = () => {
     setQuery("");
     dispatch({ type: "SET_QUERY", payload: "" });
     inputRef.current = "";
+    if (query === "") {
+      setEmptyQuery(false);
+    }
   };
 
   const fetchSearchMovies = async () => {
@@ -42,13 +49,15 @@ const Search = () => {
 
   useEffect(() => {
     clearTimeout(timeoutId.current);
+
+    if (emptyQuery) return;
     timeoutId.current = setTimeout(() => {
       setQuery(inputRef.current);
       fetchSearchMovies();
     }, 1000);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }, [query, emptyQuery]);
 
   return (
     <div className="Search">
