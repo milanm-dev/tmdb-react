@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useEffect } from "react";
 import { API_KEY } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +9,19 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const preserveQuery = useSelector((state) => state.state.query);
+  const inputRef = useRef("");
+  const timeoutId = useRef();
 
   const handleInput = (e) => {
     setQuery(e.target.value);
     dispatch({ type: "SET_QUERY", payload: e.target.value });
+    inputRef.current = e.target.value;
+  };
+
+  const handleDelete = () => {
+    setQuery("");
+    dispatch({ type: "SET_QUERY", payload: "" });
+    inputRef.current = "";
   };
 
   const fetchSearchMovies = async () => {
@@ -31,11 +40,14 @@ const Search = () => {
   };
 
   useEffect(() => {
-    fetchSearchMovies();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, handleInput]);
+    clearTimeout(timeoutId.current);
+    timeoutId.current = setTimeout(() => {
+      setQuery(inputRef.current);
+      fetchSearchMovies();
+    }, 700);
 
-  console.log(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   return (
     <div className="Search">
@@ -49,7 +61,7 @@ const Search = () => {
       {preserveQuery && (
         <motion.div
           className="Search__delete"
-          onClick={() => dispatch({ type: "SET_QUERY", payload: "" })}
+          onClick={handleDelete}
           whileHover={{ scale: 1.05 }}
         >
           <i className="far fa-times-circle fa-lg"></i>

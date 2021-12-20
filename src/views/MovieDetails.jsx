@@ -184,8 +184,8 @@ const MovieDetails = ({ match }) => {
               {cast.map(
                 (x, i) =>
                   i < 6 && (
-                    <motion.div variants={imgVariant}>
-                      <Link to={`/actor/${x.id}`} key={i}>
+                    <motion.div variants={imgVariant} key={i}>
+                      <Link to={`/actor/${x.id}`}>
                         <img
                           src={
                             x.profile_path
