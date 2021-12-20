@@ -12,7 +12,7 @@ const Pagination = () => {
   return loading ? (
     <Loader />
   ) : (
-    !searchMovies && (
+    searchMovies?.lenght === undefined && (
       <div className="Pagination">
         <button
           className="Pagination__btns"

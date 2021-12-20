@@ -5,6 +5,7 @@ import Loader from "../Loader/Loader";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./MainList.scss";
+import Pagination from "../Pagination/Pagination";
 
 const MainList = ({ movies }) => {
   const bookmark = useSelector((state) => state.state.bookmark);
@@ -44,9 +45,11 @@ const MainList = ({ movies }) => {
     },
   };
 
+  console.log(searchMovies);
+
   return loading ? (
     <Loader />
-  ) : searchMovies ? (
+  ) : searchMovies?.length ? (
     <motion.div
       className="MoviesList"
       variants={movieVariant}
@@ -91,44 +94,48 @@ const MainList = ({ movies }) => {
       )}
     </motion.div>
   ) : (
-    <motion.div
-      className="MoviesList"
-      variants={movieVariant}
-      animate="visible"
-      initial="hidden"
-    >
-      {movies.map((x, i) => (
-        <motion.div
-          key={i}
-          className="MoviesList__container"
-          variants={imgVariant}
-          whileHover={{ scale: 1.05 }}
-        >
-          <Link to={`/movie/${x.id}`}>
-            <img
-              src={
-                x.poster_path
-                  ? `https://image.tmdb.org/t/p/w300${x.poster_path}`
-                  : "https://via.placeholder.com/200x300"
-              }
-              alt="poster"
-              className="MoviesList__img"
-            />
-          </Link>
-
-          <div
-            className="MoviesList__bookmark"
-            onClick={() => dispatch({ type: "SET_BOOKMARK", payload: x })}
+    <>
+      <Pagination />
+      <motion.div
+        className="MoviesList"
+        variants={movieVariant}
+        animate="visible"
+        initial="hidden"
+      >
+        {movies.map((x, i) => (
+          <motion.div
+            key={i}
+            className="MoviesList__container"
+            variants={imgVariant}
+            whileHover={{ scale: 1.05 }}
           >
-            {bookmark.find((b) => b.id === x.id) ? (
-              <i className="fas fa-bookmark fa-2x"></i>
-            ) : (
-              <i className="far fa-bookmark fa-2x"></i>
-            )}
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
+            <Link to={`/movie/${x.id}`}>
+              <img
+                src={
+                  x.poster_path
+                    ? `https://image.tmdb.org/t/p/w300${x.poster_path}`
+                    : "https://via.placeholder.com/200x300"
+                }
+                alt="poster"
+                className="MoviesList__img"
+              />
+            </Link>
+
+            <div
+              className="MoviesList__bookmark"
+              onClick={() => dispatch({ type: "SET_BOOKMARK", payload: x })}
+            >
+              {bookmark.find((b) => b.id === x.id) ? (
+                <i className="fas fa-bookmark fa-2x"></i>
+              ) : (
+                <i className="far fa-bookmark fa-2x"></i>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+      <Pagination />
+    </>
   );
 };
 

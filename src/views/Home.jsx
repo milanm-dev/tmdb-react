@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../config";
 import MainList from "../components/MainList/MainList";
-import Pagination from "../components/Pagination/Pagination";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../components/Loader/Loader";
 
@@ -31,19 +30,7 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
-  return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Pagination />
-          <MainList movies={movies} />
-          <Pagination />
-        </>
-      )}
-    </>
-  );
+  return <>{loading ? <Loader /> : <MainList movies={movies} />}</>;
 };
 
 export default Home;

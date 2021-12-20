@@ -19,7 +19,7 @@ function App() {
           <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/favorite" element={<FavoriteList />} />
           <Route path="/actor/:id" element={<ActorDetails />} />
-          <Route element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
