@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { API_KEY } from "../config";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../components/Loader/Loader";
 import { motion } from "framer-motion";
 import "./ActorDetails.scss";
 
-const ActorDetails = ({ match }) => {
-  const id = match.params.id;
+const ActorDetails = () => {
+  const { id } = useParams();
   const [actor, setActor] = useState([]);
   const [credits, setCredits] = useState([]);
   const loading = useSelector((state) => state.state.loading);

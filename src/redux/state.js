@@ -1,7 +1,6 @@
 const initialState = {
   loading: false,
   currentPage: 1,
-  movies: [],
   bookmark: [],
   searchMovies: [],
   modal: false,
@@ -14,8 +13,6 @@ const state = (state = initialState, action) => {
       return { ...state, loading: action.payload };
     case "CURRENT_PAGE":
       return { ...state, currentPage: action.payload };
-    case "SET_MOVIES":
-      return { ...state, movies: action.payload };
     case "SET_SEARCHMOVIES":
       return { ...state, searchMovies: action.payload };
     case "SET_QUERY":

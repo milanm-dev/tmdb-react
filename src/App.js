@@ -1,11 +1,12 @@
 import Home from "./views/Home";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import MovieDetails from "./views/MovieDetails";
 import NotFound from "./components/NotFound/NotFound";
 import FavoriteList from "./views/FavoriteList";
 import Footer from "./components/Footer/Footer";
 import ActorDetails from "./views/ActorDetails";
+
 import "./App.scss";
 
 function App() {
@@ -13,13 +14,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/movie/:id" component={MovieDetails} />
-          <Route path="/favorite" component={FavoriteList} />
-          <Route path="/actor/:id" component={ActorDetails} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+          <Route path="/favorite" element={<FavoriteList />} />
+          <Route path="/actor/:id" element={<ActorDetails />} />
+          <Route element={<NotFound />} />
+        </Routes>
         <Footer />
       </div>
     </BrowserRouter>

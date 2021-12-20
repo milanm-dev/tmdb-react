@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { API_KEY } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
+
 import "./Search.scss";
 
 const Search = () => {
@@ -44,7 +45,7 @@ const Search = () => {
     timeoutId.current = setTimeout(() => {
       setQuery(inputRef.current);
       fetchSearchMovies();
-    }, 700);
+    }, 1000);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);

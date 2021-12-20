@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader/Loader";
 import { API_KEY } from "../config";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Trailer from "../components/Trailer/Trailer";
 import { motion } from "framer-motion";
 import "./MovieDetails.scss";
 
-const MovieDetails = ({ match }) => {
-  const id = match.params.id;
+const MovieDetails = () => {
+  const { id } = useParams();
   const [movie, setMovie] = useState([]);
   const [cast, setCast] = useState([]);
   const [content, setContent] = useState([]);

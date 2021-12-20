@@ -19,7 +19,6 @@ const Home = () => {
       );
       const data = await res.json();
       setMovies(data.results);
-      dispatch({ type: "SET_MOVIES", payload: data.results });
     } catch (error) {
       console.warn(error);
     } finally {
