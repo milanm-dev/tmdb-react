@@ -1,8 +1,8 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Search from "../Search/Search";
-import "./Navbar.scss";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Search from '../Search/Search';
+import './Navbar.scss';
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function Navbar() {
         <Link
           to="/"
           onClick={() =>
-            dispatch({ type: "CURRENT_PAGE", payload: currentPage })
+            dispatch({ type: 'CURRENT_PAGE', payload: currentPage })
           }
         >
           <i className="fas fa-video fa-lg"> </i>
@@ -25,9 +25,9 @@ function Navbar() {
         </Link>
       </div>
       <div className="Header__right">
-        {path.pathname === "/" && <Search />}
+        {path.pathname === '/' && <Search />}
         <a
-          href="https://github.com/Lane876"
+          href="https://github.com/milanm-dev"
           target="_blank"
           rel="noreferrer"
           aria-label="github"
